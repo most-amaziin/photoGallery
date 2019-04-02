@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Gallery from '../presentational/gallery';
+import View from '../presentational/view';
 
 export default class FormContainer extends React.Component {
   constructor(props) {
@@ -13,35 +14,23 @@ export default class FormContainer extends React.Component {
   }
 
   handleClick(e) {
-    // console.log(e.target.value);
-    // let productPhotos = '';
-    // let tempArr = ["https://s3.amazonaws.com/fecphotogallery2019/photos/1_1.jpg",
-    //   "https://s3.amazonaws.com/fecphotogallery2019/photos/1_2.jpg",
-    //   "https://s3.amazonaws.com/fecphotogallery2019/photos/4_1.jpg"];
-    // for (let i = 0; i < tempArr.length; i++) {
-    //   productPhotos += <img src={tempArr[i]} />;
-    // }
+    console.log(e.target.value);
+
   }
 
   render() {
+
     return (
       <div>
         <table>
-          <td id="gallery">
-            {/* {productPhotos} */}
-
+          <td id="gallery" class='gallery'>Gallery
+            <Gallery />
           </td>
-          <td id="full">
-
+          <td id="full" class='view'>View
+            <View />
           </td>
-
         </table>
-        <p>I'm a View</p>
-        < Gallery />
       </div>
     )
   }
 }
-
-const wrapper = document.getElementById("create-article-form");
-wrapper ? ReactDOM.render(<FormContainer />, wrapper) : false;

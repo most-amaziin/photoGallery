@@ -10,15 +10,16 @@ app.use(express.static('dist'));
 //user clicks a product, request all product photos
 app.get('/photos', (req, res) => {
   const productId = req.query.id;
+  console.log('2ZZZ :', productId)
   db.getProductPics(productId, (error, results) => {
     if (error) {
       console.log('server failed to load photos ', error);
       res.end();
     } else {
-      res.status(200).send(results);
+      console.log('5ZZZ', results)
+      res.send(results);
     }
   })
-  res.end(res.body);
 });
 
 //user clicks a photo, request one photo from DB
@@ -29,7 +30,7 @@ app.get('/photos/id', (req, res) => {
       console.log('server failed to get photo ', error)
       res.end();
     } else {
-      res.status(200).send(result);
+      res.send(result);
     }
   })
 });

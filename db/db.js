@@ -22,12 +22,14 @@ client.connect((err) => {
 
 // user clicks a product, send back all product photos object
 const getProductPics = (productId, cb) => {
+  console.log('3ZZZ', productId)
   client.query(`SELECT * FROM photos WHERE product_id = ${productId}`, (err, results) => {
     if (err) {
       console.log('could not load pictures for product id :', productId, ' error:', err);
       cb(err);
     } else {
-      cb(null, results);
+      console.log('4ZZZ', results.rows)
+      cb(null, results.rows);
     }
   });
 };
@@ -39,7 +41,7 @@ const getViewPic = (photoId, cb) => {
       console.log('could not load picture by id :', photoId, ' error:', err);
       cb(err);
     } else {
-      cb(null, result);
+      cb(null, result.rows);
     }
   });
 };
