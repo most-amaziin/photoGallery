@@ -36,7 +36,7 @@ const getProductPics = (productId, cb) => {
 
 // user clicks a photo, send back one photo object
 const getViewPic = (photoId, cb) => {
-  client.query(`SELECT url FROM photos WHERE id = ${photoId}`, (err, result) => {
+  client.query(`SELECT * FROM photos WHERE id = ${photoId}`, (err, result) => {
     if (err) {
       console.log('could not load picture by id :', photoId, ' error:', err);
       cb(err);
