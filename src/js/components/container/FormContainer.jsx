@@ -8,7 +8,7 @@ export default class FormContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      productId: 1,
+      productId: 13,
       productPhotos: [],
       photo: {
         id: 1,
@@ -22,19 +22,19 @@ export default class FormContainer extends React.Component {
   componentDidMount() {
     console.log('1ZZZ')
     const currentPhoto = this.state.photo.id;
-    axios.get('/photos/id', { params: { id: currentPhoto } })
+    axios.get('/photos', { params: { id: this.state.productId } })
       .then(results => {
-        this.setState({ photo: results.data[0] })
-      })
-      .catch('Could not load chosen photo at client view')
-      .then(axios.get('/photos', { params: { id: this.state.productId } })
-        .then(results => {
-          this.setState({ productPhotos: results.data }, () => {
-            console.log('6ZZZ')
-          })
+        this.setState({ productPhotos: results.data, photo: results.data[0] }, () => {
+          console.log('6ZZZ')
         })
-        .catch('Could not load product photos at client gallery')
-      )
+      })
+      .catch('Could not load product photos at client gallery')
+    // .then(axios.get('/photos/id', { params: { id: currentPhoto } })
+    //     .then(results => {
+    //       this.setState({ photo: results.data[0] })
+    //     })
+    //     .catch('Could not load chosen photo at client view')
+    //   )
   }
 
   handleClick(e) {
