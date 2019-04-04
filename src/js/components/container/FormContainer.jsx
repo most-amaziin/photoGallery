@@ -2,46 +2,65 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Gallery from '../presentational/gallery';
+import View from '../presentational/view';
 
 export default class FormContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      productId: 13,
+      productPhotos: [],
+      photo: {
+        id: 1,
+        url: 'https://s3.amazonaws.com/fecphotogallery2019/photos/1_1.jpg',
+        product_id: 1
+      }
     }
     this.handleClick = this.handleClick.bind(this);
   }
 
+  componentDidMount() {
+    console.log('1ZZZ')
+    const currentPhoto = this.state.photo.id;
+    axios.get('/photos', { params: { id: this.state.productId } })
+      .then(results => {
+        this.setState({ productPhotos: results.data, photo: results.data[0] }, () => {
+          console.log('6ZZZ')
+        })
+      })
+      .catch('Could not load product photos at client gallery')
+    // .then(axios.get('/photos/id', { params: { id: currentPhoto } })
+    //     .then(results => {
+    //       this.setState({ photo: results.data[0] })
+    //     })
+    //     .catch('Could not load chosen photo at client view')
+    //   )
+  }
+
   handleClick(e) {
-    // console.log(e.target.value);
-    // let productPhotos = '';
-    // let tempArr = ["https://s3.amazonaws.com/fecphotogallery2019/photos/1_1.jpg",
-    //   "https://s3.amazonaws.com/fecphotogallery2019/photos/1_2.jpg",
-    //   "https://s3.amazonaws.com/fecphotogallery2019/photos/4_1.jpg"];
-    // for (let i = 0; i < tempArr.length; i++) {
-    //   productPhotos += <img src={tempArr[i]} />;
-    // }
+    this.setState({
+      photo: {
+        id: e.target.id,
+        url: e.target.src,
+        //THIS WILL UPDATE WHEN CONNECTING TO OTHER COMPONENTS
+        product_id: this.state.productId
+      }
+    })
   }
 
   render() {
+
     return (
       <div>
         <table>
-          <td id="gallery">
-            {/* {productPhotos} */}
-
+          <td id="gallery" class='gallery'>
+            <Gallery clickPhoto={this.handleClick} productPhotos={this.state.productPhotos} />
           </td>
-          <td id="full">
-
+          <td id="full" class='view'>
+            <View photo={this.state.photo} />
           </td>
-
         </table>
-        <p>I'm a View</p>
-        < Gallery />
       </div>
     )
   }
 }
-
-const wrapper = document.getElementById("create-article-form");
-wrapper ? ReactDOM.render(<FormContainer />, wrapper) : false;

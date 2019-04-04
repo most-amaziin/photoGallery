@@ -6,6 +6,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Photo Gallery</title>
+    <style>
+      .photo {
+        width: 70%;
+        height: auto;
+        float: right;
+        display: block;
+        margin: 5px;
+      }
+
+      .photosContainer {
+        height: 25px;
+        /* equals max image height */
+        width: 160px;
+        border: 1px solid red;
+        white-space: nowrap;
+        /* this is required unless you put the helper span closely near the img */
+        text-align: center;
+        margin: 1em 0;
+      }
+
+      .photosSpan {
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+      }
+
+      .photos {
+        background: #3A6F9A;
+        vertical-align: middle;
+        max-height: 25px;
+        max-width: 160px;
+      }
+
+      photos:hover {
+        box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+      }
+
+      /* .view {
+        width: 80%;
+        height: 80%;
+        /* width: 20%;
+        min-width: 70px;
+        height: 720px; */
+      /* border-style: solid;
+        border-width: 5px; */
+      /* border-color: aquamarine; */
+      /* position: absolute
+      } */
+
+      /* .photo:hover {
+        width: 25%;
+        height: 25%;
+      }
+
+      .view {
+        width: 75%;
+        height: 75%;
+      } */
+    </style>
   </head>
 
   <body>
