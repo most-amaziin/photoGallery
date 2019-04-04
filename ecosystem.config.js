@@ -6,7 +6,7 @@ module.exports = {
   deploy: {
     production: {
       user: 'ubuntu',
-      host: 'http://ec2-3-19-73-29.us-east-2.compute.amazonaws.com/',
+      host: 'ec2-3-17-26-34.us-east-2.compute.amazonaws.com',
       key: '~/.ssh/FECPhotoGallery.pem',
       ref: 'origin/master',
       repo: 'https://github.com/threetexansandacanadian/photoGallery.git',
