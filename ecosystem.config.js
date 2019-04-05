@@ -1,7 +1,7 @@
 module.exports = {
   apps: [{
     name: 'fecphotogallery',
-    script: './index.js'
+    script: './server/server.js'
   }],
   deploy: {
     production: {
