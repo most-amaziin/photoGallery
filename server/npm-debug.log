@@ -1,7 +1,7 @@
 0 info it worked if it ends with ok
 1 verbose cli [ '/Users/partypeoplegames/.nvm/versions/node/v6.13.1/bin/node',
 1 verbose cli   '/Users/partypeoplegames/.nvm/versions/node/v6.13.1/bin/npm',
-1 verbose cli   'run',
+1 verbose cli   'run-script',
 1 verbose cli   'deploy' ]
 2 info using npm@3.10.10
 3 info using node@v6.13.1
@@ -26,9 +26,9 @@
 14 verbose stack     at maybeClose (internal/child_process.js:920:16)
 14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:230:5)
 15 verbose pkgid photoGallery@1.0.0
-16 verbose cwd /Users/partypeoplegames/13 weeks/FEC/photoGallery
+16 verbose cwd /Users/partypeoplegames/13 weeks/FEC/photoGallery/server
 17 error Darwin 18.5.0
-18 error argv "/Users/partypeoplegames/.nvm/versions/node/v6.13.1/bin/node" "/Users/partypeoplegames/.nvm/versions/node/v6.13.1/bin/npm" "run" "deploy"
+18 error argv "/Users/partypeoplegames/.nvm/versions/node/v6.13.1/bin/node" "/Users/partypeoplegames/.nvm/versions/node/v6.13.1/bin/npm" "run-script" "deploy"
 19 error node v6.13.1
 20 error npm  v3.10.10
 21 error code ELIFECYCLE
