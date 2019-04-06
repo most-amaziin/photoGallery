@@ -37,7 +37,7 @@ app.get('/photos/id', (req, res) => {
     }
   })
 });
-
+console.log('testing pe PORT :', process.env.PORT)
 const PORT = process.env.PORT;
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`)
