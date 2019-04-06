@@ -1,8 +1,8 @@
+const express = require('express');
+const app = express();
 require('dotenv').config();
 
 const bodyParser = require('body-parser');
-const express = require('express');
-const app = express();
 const db = require('../db/db');
 
 const photoGalleryPath = '/Users/partypeoplegames/13 weeks/FEC/photoGallery/client';
