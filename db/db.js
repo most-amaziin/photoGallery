@@ -1,8 +1,7 @@
 //AWS S3 bucket: fecphotogallery2019
 //'https://s3.amazonaws.com/fecphotogallery2019/photos/'
-
 const { Client } = require('pg');
-require('dotenv').config();
+require('dotenv').config({ path: __dirname + "/../.env" });
 
 const client = new Client({
   user: process.env.DB_USER,
