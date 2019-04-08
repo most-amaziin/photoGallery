@@ -1,12 +1,16 @@
-import React from 'react';
+import React from "react";
 
-const View = (props) => {
-
+const View = props => {
   return (
     <div>
-      <img id='view' src={props.photo.url} alt={`photo ${props.photo.id} for product ${props.photo.product_id}: ${props.productName}`}></img>
+      <img
+        id="view"
+        src={props.photo.url}
+        alt={`photo ${props.photo.id} for product ${props.photo.product_id}: 
+        ${props.productName}`}
+      />
     </div>
-  )
-}
+  );
+};
 
-export default View
+export default View;
