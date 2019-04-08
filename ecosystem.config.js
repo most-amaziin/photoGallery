@@ -8,7 +8,7 @@ module.exports = {
   deploy: {
     production: {
       user: "ubuntu",
-      host: "ec2-13-58-49-169.us-east-2.compute.amazonaws.com",
+      host: "ec2-52-15-195-39.us-east-2.compute.amazonaws.com",
       key: "~/.ssh/FECPhotoGallery.pem",
       ref: "origin/master",
       repo: "https://github.com/threetexansandacanadian/photoGallery.git",
