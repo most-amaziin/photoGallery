@@ -8,7 +8,7 @@ export default class FormContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      productId: 78,
+      productId: 79,
       productPhotos: [],
       productName: "product photo",
       photo: {
