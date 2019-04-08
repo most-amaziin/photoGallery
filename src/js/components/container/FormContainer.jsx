@@ -8,7 +8,7 @@ export default class FormContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      productId: 21,
+      productId: 64,
       productPhotos: [],
       productName: 'product photo',
       photo: {
@@ -60,7 +60,7 @@ export default class FormContainer extends React.Component {
             <Gallery clickPhoto={this.handleClick} productPhotos={this.state.productPhotos} productName={this.state.productName} />
           </td>
           <td id="full" class='view'>
-            <View photo={this.state.photo} />
+            <View photo={this.state.photo} productName={this.state.productName} />
           </td>
         </table>
       </div>
