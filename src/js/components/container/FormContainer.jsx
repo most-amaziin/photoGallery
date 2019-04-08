@@ -8,8 +8,9 @@ export default class FormContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      productId: 13,
+      productId: 21,
       productPhotos: [],
+      productName: 'product photo',
       photo: {
         id: 1,
         url: 'https://s3.amazonaws.com/fecphotogallery2019/photos/1_1.jpg',
@@ -22,6 +23,7 @@ export default class FormContainer extends React.Component {
   componentDidMount() {
     console.log('1ZZZ')
     const currentPhoto = this.state.photo.id;
+    const currentProduct = this.state.productName;
     axios.get('/photos', { params: { id: this.state.productId } })
       .then(results => {
         this.setState({ productPhotos: results.data, photo: results.data[0] }, () => {
@@ -29,12 +31,13 @@ export default class FormContainer extends React.Component {
         })
       })
       .catch('Could not load product photos at client gallery')
-    // .then(axios.get('/photos/id', { params: { id: currentPhoto } })
-    //     .then(results => {
-    //       this.setState({ photo: results.data[0] })
-    //     })
-    //     .catch('Could not load chosen photo at client view')
-    //   )
+      .then(axios.get('/product/id', { params: { id: this.state.productId } })
+        .then(result => {
+          console.log('6yyy', result.data)
+          this.setState({ productName: result.data[0].name })
+        })
+        .catch('Could not load chosen photo at client view')
+      )
   }
 
   handleClick(e) {
@@ -54,7 +57,7 @@ export default class FormContainer extends React.Component {
       <div>
         <table>
           <td id="gallery" class='gallery'>
-            <Gallery clickPhoto={this.handleClick} productPhotos={this.state.productPhotos} />
+            <Gallery clickPhoto={this.handleClick} productPhotos={this.state.productPhotos} productName={this.state.productName} />
           </td>
           <td id="full" class='view'>
             <View photo={this.state.photo} />

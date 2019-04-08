@@ -14,6 +14,7 @@ app.use(express.static('dist'));
 app.get('/photos', (req, res) => {
   const productId = req.query.id;
   console.log('2ZZZ :', productId)
+  // console.log('RP :', req)
   db.getProductPics(productId, (error, results) => {
     if (error) {
       console.log('server failed to load photos ', error);
@@ -25,14 +26,15 @@ app.get('/photos', (req, res) => {
   })
 });
 
-//user clicks a photo, request one photo from DB
-app.get('/photos/id', (req, res) => {
-  const photoId = req.query.id;
-  db.getViewPic(photoId, (error, result) => {
+//user clicks a product, request product name
+app.get('/product/id', (req, res) => {
+  const productId = req.query.id;
+  db.getProductName(productId, (error, result) => {
     if (error) {
-      console.log('server failed to get photo ', error)
+      console.log('server failed to get product name ', error)
       res.end();
     } else {
+      console.log('5YYY', result)
       res.send(result);
     }
   })

@@ -24,7 +24,7 @@ const getProductPics = (productId, cb) => {
   console.log('3ZZZ', productId)
   client.query(`SELECT * FROM photos WHERE product_id = ${productId}`, (err, results) => {
     if (err) {
-      console.log('could not load pictures for product id :', productId, ' error:', err);
+      console.log('could not load pictures by product id :', productId, ' error:', err);
       cb(err);
     } else {
       console.log('4ZZZ', results.rows)
@@ -34,12 +34,13 @@ const getProductPics = (productId, cb) => {
 };
 
 // user clicks a photo, send back one photo object
-const getViewPic = (photoId, cb) => {
-  client.query(`SELECT * FROM photos WHERE id = ${photoId}`, (err, result) => {
+const getProductName = (productId, cb) => {
+  client.query(`SELECT name FROM products WHERE id = ${productId}`, (err, result) => {
     if (err) {
-      console.log('could not load picture by id :', photoId, ' error:', err);
+      console.log('could not load product name by product id :', productId, ' error:', err);
       cb(err);
     } else {
+      console.log('4YYY', result.rows)
       cb(null, result.rows);
     }
   });
@@ -90,4 +91,4 @@ let policyAWS = {
   ]
 }
 
-module.exports = { getProductPics, getViewPic }
+module.exports = { getProductPics, getProductName }
