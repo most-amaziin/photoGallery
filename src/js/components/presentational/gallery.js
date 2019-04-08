@@ -1,6 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import axios from 'axios';
 
 const Gallery = (props) => {
   const photos = props.productPhotos.map((photo) => (
