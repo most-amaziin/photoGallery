@@ -9,7 +9,7 @@ export default class FormContainer extends React.Component {
     super(props);
     this.state = {
       fullScreen: false,
-      productId: 96,
+      productId: 49,
       productPhotos: [],
       productName: "product photo",
       photo: {
@@ -66,27 +66,54 @@ export default class FormContainer extends React.Component {
   }
 
   render() {
-    return (
-      <div>
-        <table>
-          <td id="gallery" class="gallery">
-            <Gallery
-              clickPhoto={this.handleClick}
-              productPhotos={this.state.productPhotos}
-              productName={this.state.productName}
-            />
-          </td>
-          <td id="full" class="view">
-            <View
-              photo={this.state.photo}
-              productPhotos={this.state.productPhotos}
-              productName={this.state.productName}
-              fullScreen={this.state.fullScreen}
-              toggleFullScreen={this.toggleFullScreen}
-            />
-          </td>
-        </table>
-      </div>
-    );
+    if (this.state.fullScreen === false) {
+      return (
+        <div>
+          <table>
+            <td id="gallery" class="gallery">
+              <Gallery
+                clickPhoto={this.handleClick}
+                productPhotos={this.state.productPhotos}
+                productName={this.state.productName}
+                fullScreen={this.state.fullScreen}
+              />
+            </td>
+            <td id="full" class="view">
+              <View
+                photo={this.state.photo}
+                productPhotos={this.state.productPhotos}
+                productName={this.state.productName}
+                fullScreen={this.state.fullScreen}
+                toggleFullScreen={this.toggleFullScreen}
+              />
+            </td>
+          </table>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <table>
+            <tr id="full" class="view">
+              <View
+                photo={this.state.photo}
+                productPhotos={this.state.productPhotos}
+                productName={this.state.productName}
+                fullScreen={this.state.fullScreen}
+                toggleFullScreen={this.toggleFullScreen}
+              />
+            </tr>
+            <tr id="gallery" class="gallery">
+              <Gallery
+                clickPhoto={this.handleClick}
+                productPhotos={this.state.productPhotos}
+                productName={this.state.productName}
+                fullScreen={this.state.fullScreen}
+              />
+            </tr>
+          </table>
+        </div>
+      );
+    }
   }
 }

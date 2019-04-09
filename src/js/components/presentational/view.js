@@ -2,11 +2,10 @@ import React from "react";
 
 const View = props => {
   const mainView = (
-    <div>
-      <p>{props.fullScreen}</p>
+    <div class="photo-container">
       <img
-        id="view"
         class="photo"
+        id="view"
         src={props.photo.url}
         onClick={props.toggleFullScreen}
         alt={`photo ${props.photo.id} for product 
@@ -14,6 +13,31 @@ const View = props => {
       />
     </div>
   );
+
+  const zoomView = (
+    <div>
+      <div id="zoomView" class="photo-zoom-result" />
+    </div>
+  );
+
+  console.log("all duh photos ", props.productPhotos);
+
+  const carousalSlides = props.productPhotos.map(photo => {
+    if (photo.url !== props.photo.url) {
+      return (
+        <div class="carousel-item">
+          <img
+            class="d-block w-100"
+            onClick={props.toggleFullScreen}
+            src={photo.url}
+            alt={`photo ${photo.id} for product ${photo.product_id}: 
+            ${props.productName}`}
+          />
+        </div>
+      );
+    }
+  });
+
   const carousalView = (
     <div
       id="carouselExampleControls"
@@ -22,14 +46,30 @@ const View = props => {
     >
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img class="d-block w-100" src={props.photo.url} alt="First slide" />
+          <img
+            class="d-block w-100"
+            onClick={props.toggleFullScreen}
+            src={props.photo.url}
+            alt="First slide"
+          />
+        </div>
+        {carousalSlides}
+        {/* <div class="carousel-item">
+          <img
+            class="d-block w-100"
+            onClick={props.toggleFullScreen}
+            src={props.photo.url}
+            alt="Second slide"
+          />
         </div>
         <div class="carousel-item">
-          <img class="d-block w-100" src={props.photo.url} alt="Second slide" />
-        </div>
-        <div class="carousel-item">
-          <img class="d-block w-100" src={props.photo.url} alt="Third slide" />
-        </div>
+          <img
+            class="d-block w-100"
+            onClick={props.toggleFullScreen}
+            src={props.photo.url}
+            alt="Third slide"
+          />
+        </div> */}
       </div>
       <a
         class="carousel-control-prev"
@@ -53,7 +93,12 @@ const View = props => {
   );
 
   if (props.fullScreen === false) {
-    return <div>{mainView}</div>;
+    return (
+      <div>
+        {mainView}
+        {/* {zoomView} */}
+      </div>
+    );
   } else {
     return <div>{carousalView}</div>;
   }
