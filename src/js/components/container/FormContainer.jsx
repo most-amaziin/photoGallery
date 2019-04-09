@@ -8,7 +8,8 @@ export default class FormContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      productId: 79,
+      fullScreen: false,
+      productId: 96,
       productPhotos: [],
       productName: "product photo",
       photo: {
@@ -18,6 +19,7 @@ export default class FormContainer extends React.Component {
       }
     };
     this.handleClick = this.handleClick.bind(this);
+    this.toggleFullScreen = this.toggleFullScreen.bind(this);
   }
 
   componentDidMount() {
@@ -57,6 +59,12 @@ export default class FormContainer extends React.Component {
     });
   }
 
+  toggleFullScreen(e) {
+    console.log("FS toggle :", this.state.fullScreen);
+    if (this.state.fullScreen === false) this.setState({ fullScreen: true });
+    else this.setState({ fullScreen: false });
+  }
+
   render() {
     return (
       <div>
@@ -71,7 +79,10 @@ export default class FormContainer extends React.Component {
           <td id="full" class="view">
             <View
               photo={this.state.photo}
+              productPhotos={this.state.productPhotos}
               productName={this.state.productName}
+              fullScreen={this.state.fullScreen}
+              toggleFullScreen={this.toggleFullScreen}
             />
           </td>
         </table>
