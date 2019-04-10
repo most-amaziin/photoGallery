@@ -9,7 +9,7 @@ export default class FormContainer extends React.Component {
     super(props);
     this.state = {
       fullScreen: false,
-      productId: 49,
+      productId: 67,
       productPhotos: [],
       productName: "product photo",
       photo: {
@@ -20,10 +20,24 @@ export default class FormContainer extends React.Component {
     };
     this.handleClick = this.handleClick.bind(this);
     this.toggleFullScreen = this.toggleFullScreen.bind(this);
+    this.clickCarousel = this.clickCarousel.bind(this);
+    // this.clickCarousel = this.clickCarousel.bind(this);
+  }
+
+  handleUpdateProdId(event) {
+    console.log("event.detail ", event);
+    if (event.detail) this.setState({ productId: event.detail });
+    //UPDATE GET/POST REQUESTS
   }
 
   componentDidMount() {
     console.log("1ZZZ");
+    //NEED TO TEST THIS
+    window.addEventListener("updateProdId", this.handleUpdateProdId.bind(this));
+    // window.addEventListener(
+    //   "updateProdId",
+    //   this.setState({ productId: event.detail })
+    // );
     const currentPhoto = this.state.photo.id;
     const currentProduct = this.state.productName;
     axios
@@ -57,6 +71,14 @@ export default class FormContainer extends React.Component {
         product_id: this.state.productId
       }
     });
+  }
+
+  clickCarousel(e) {
+    document.getElementsByClassName("carousel-item active").className =
+      "carousel-item";
+    e.target.parent().className = "carousel-item-active";
+    // <div class="carousel-inner">
+    //     <div class="carousel-item active"></div>
   }
 
   toggleFullScreen(e) {
@@ -109,6 +131,7 @@ export default class FormContainer extends React.Component {
                 productPhotos={this.state.productPhotos}
                 productName={this.state.productName}
                 fullScreen={this.state.fullScreen}
+                clickCarousel={this.clickCarousel}
               />
             </tr>
           </table>

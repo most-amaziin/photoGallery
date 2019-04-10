@@ -7,13 +7,55 @@
     <title>Photo Gallery</title>
     <style>
       /* https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_image_zoom */
-      * {
+      html {
         box-sizing: border-box;
+      }
+      *,
+      *:before,
+      *:after {
+        box-sizing: inherit;
+      }
+
+      .gallery {
+        vertical-align: top;
+        cursor: pointer;
+        margin: 5% auto;
+      }
+
+      .photosBox {
+        border-width: 1px;
+        background-color: white;
+        width: 106px;
+        height: 106px;
+        text-align: center;
+        margin: 5% auto;
+      }
+
+      .photosBox:hover {
+        border-style: solid;
+        border-color: black;
+      }
+
+      .photos {
+        position: relative;
+        top: 50%;
+        transform: perspective(1px) translateY(-50%);
+        /* vertical-align: center; */
+        /* margin: 5% auto; */
+        max-height: 100px;
+        max-width: 100px;
+        cursor: pointer;
+      }
+
+      .view {
+        cursor: pointer;
+        width: 75%;
+        height: 75%;
+        margin: 5% auto;
       }
 
       .photo-container {
-        position: relative;
-        cursor: pointer;
+        /* position: relative; */
         max-height: 400px;
         max-width: 400px;
       }
@@ -37,19 +79,6 @@
         /*set the size of the result div:*/
         width: 300px;
         height: 300px;
-      }
-
-      .photos {
-        background: #3a6f9a;
-        vertical-align: middle;
-        max-height: 100px;
-        max-width: 100px;
-        cursor: pointer;
-      }
-
-      .view {
-        width: 75%;
-        height: 75%;
       }
     </style>
     <link
