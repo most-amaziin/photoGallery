@@ -1,11 +1,17 @@
 import React from "react";
 
+// console.log("TEST :", photo.id, props.photoId);
+
 const Gallery = props => {
   const photosVertical = props.productPhotos.map(photo => (
     <tr class="photosContainer">
-      <div class="photosBox">
+      <div
+        className={
+          photo.id == props.photo.id ? "selectedThumbnail" : "thumbnail"
+        }
+      >
         <img
-          class="photos"
+          class={"photos"}
           onClick={props.clickPhoto}
           id={photo.id}
           src={photo.url}

@@ -98,7 +98,9 @@ export default class FormContainer extends React.Component {
                 productPhotos={this.state.productPhotos}
                 productName={this.state.productName}
                 fullScreen={this.state.fullScreen}
+                photo={this.state.photo}
               />
+              <p>{this.state.photo.id}</p>
             </td>
             <td id="full" class="view">
               <View
@@ -132,6 +134,7 @@ export default class FormContainer extends React.Component {
                 productName={this.state.productName}
                 fullScreen={this.state.fullScreen}
                 clickCarousel={this.clickCarousel}
+                photo={this.state.photo}
               />
             </tr>
           </table>

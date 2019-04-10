@@ -22,7 +22,9 @@
         margin: 5% auto;
       }
 
-      .photosBox {
+      .selectedThumbnail {
+        border-style: solid;
+        border-color: black;
         border-width: 1px;
         background-color: white;
         width: 106px;
@@ -31,8 +33,17 @@
         margin: 5% auto;
       }
 
-      .photosBox:hover {
-        border-style: solid;
+      .thumbnail {
+        border-width: 1px;
+        background-color: white;
+        width: 106px;
+        height: 106px;
+        text-align: center;
+        margin: 5% auto;
+      }
+
+      .thumbnail:hover {
+        border-style: dashed;
         border-color: black;
       }
 
@@ -87,7 +98,7 @@
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
-    <script>
+    <!-- <script>
       // https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_image_zoom
       function imageZoom(view, zoomView) {
         var img, lens, result, cx, cy;
@@ -156,7 +167,7 @@
           return { x: x, y: y };
         }
       }
-    </script>
+    </script> -->
   </head>
 
   <body>
@@ -178,7 +189,7 @@
     ></script>
     <script>
       // Initiate zoom effect:
-      imageZoom("view", "zoomView");
+      // imageZoom("view", "zoomView");
     </script>
   </body>
 </html>
