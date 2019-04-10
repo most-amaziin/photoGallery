@@ -90,7 +90,6 @@ const View = props => {
         <span class="sr-only">Next</span>
       </a>
       {/* <!--/.Controls--> */}
-      <p>thumbnails1?</p>
       <ol class="carousel-indicators">
         <li data-target="#carousel-thumb" data-slide-to="0" class="active">
           {" "}
@@ -115,7 +114,6 @@ const View = props => {
           />
         </li>
       </ol>
-      <p>thumbnails2?</p>
     </div>
   );
 

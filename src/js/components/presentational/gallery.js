@@ -11,7 +11,7 @@ const Gallery = props => {
         }
       >
         <img
-          class={"photos"}
+          class={"photosVertical"}
           onClick={props.clickPhoto}
           id={photo.id}
           src={photo.url}
@@ -23,15 +23,20 @@ const Gallery = props => {
   ));
   const photosHorizontal = props.productPhotos.map(photo => (
     <td class="photosContainer">
-      {/* <span class="photoSpan" /> */}
-      <img
-        class="photos"
-        onClick={props.clickCarousel}
-        id={photo.id}
-        src={photo.url}
-        alt={`photo ${photo.id} for product ${photo.product_id}: 
+      <div
+        className={
+          photo.id == props.photo.id ? "selectedThumbnail" : "thumbnail"
+        }
+      >
+        <img
+          class={"photosHorizontal"}
+          onClick={props.clickPhoto}
+          id={photo.id}
+          src={photo.url}
+          alt={`photo ${photo.id} for product ${photo.product_id}: 
         ${props.productName}`}
-      />
+        />
+      </div>
     </td>
   ));
 

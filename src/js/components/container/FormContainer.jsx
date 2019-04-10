@@ -9,7 +9,7 @@ export default class FormContainer extends React.Component {
     super(props);
     this.state = {
       fullScreen: false,
-      productId: 67,
+      productId: 12,
       productPhotos: [],
       productName: "product photo",
       photo: {
@@ -92,7 +92,7 @@ export default class FormContainer extends React.Component {
       return (
         <div>
           <table>
-            <td id="gallery" class="gallery">
+            <td id="gallery" class="galleryVertical">
               <Gallery
                 clickPhoto={this.handleClick}
                 productPhotos={this.state.productPhotos}
@@ -100,7 +100,6 @@ export default class FormContainer extends React.Component {
                 fullScreen={this.state.fullScreen}
                 photo={this.state.photo}
               />
-              <p>{this.state.photo.id}</p>
             </td>
             <td id="full" class="view">
               <View
@@ -127,7 +126,7 @@ export default class FormContainer extends React.Component {
                 toggleFullScreen={this.toggleFullScreen}
               />
             </tr>
-            <tr id="gallery" class="gallery">
+            <tr id="gallery" class="galleryHorizontal">
               <Gallery
                 clickPhoto={this.handleClick}
                 productPhotos={this.state.productPhotos}
