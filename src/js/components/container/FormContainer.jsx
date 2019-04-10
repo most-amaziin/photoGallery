@@ -4,12 +4,14 @@ import axios from "axios";
 import Gallery from "../presentational/gallery";
 import View from "../presentational/view";
 
+const URL = `http://ec2-52-15-195-39.us-east-2.compute.amazonaws.com`;
+
 export default class FormContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       fullScreen: false,
-      productId: 12,
+      productId: 15,
       productPhotos: [],
       productName: "product photo",
       photo: {
@@ -24,24 +26,34 @@ export default class FormContainer extends React.Component {
     // this.clickCarousel = this.clickCarousel.bind(this);
   }
 
-  handleUpdateProdId(event) {
-    console.log("event.detail ", event);
-    if (event.detail) this.setState({ productId: event.detail });
-    //UPDATE GET/POST REQUESTS
-  }
-
   componentDidMount() {
     console.log("1ZZZ");
-    //NEED TO TEST THIS
     window.addEventListener("updateProdId", this.handleUpdateProdId.bind(this));
-    // window.addEventListener(
-    //   "updateProdId",
-    //   this.setState({ productId: event.detail })
-    // );
     const currentPhoto = this.state.photo.id;
     const currentProduct = this.state.productName;
+    this.getProductPics();
+    this.getProductName();
+  }
+
+  handleUpdateProdId(event) {
+    console.log("event.detail ", event);
+    if (event.detail) {
+      const newProductId = event.detail;
+      this.setState({ productId: newProductId });
+      this.getProductPics(newProductId);
+      this.getProductName(newProductId);
+    }
+  }
+
+  getProductPics(productId = this.state.productId) {
+    // axios.get(`${host}:3000/api/reviews`, { headers: { productid: id, 'Access-Control-Allow-Origin': `${host}:3000/api/reviews` } })
+
+    console.log("URL :", URL);
     axios
-      .get("/photos", { params: { id: this.state.productId } })
+      .get(`${URL}/photos`, {
+        headers: { "Access-Control-Allow-Origin": `${URL}/photos` },
+        params: { id: productId }
+      })
       .then(results => {
         this.setState(
           { productPhotos: results.data, photo: results.data[0] },
@@ -50,16 +62,20 @@ export default class FormContainer extends React.Component {
           }
         );
       })
-      .catch("Could not load product photos at client gallery")
-      .then(
-        axios
-          .get("/product/id", { params: { id: this.state.productId } })
-          .then(result => {
-            console.log("6yyy", result.data);
-            this.setState({ productName: result.data[0].name });
-          })
-          .catch("Could not load chosen photo at client view")
-      );
+      .catch("Could not load product photos at client gallery");
+  }
+
+  getProductName(productId = this.state.productId) {
+    axios
+      .get(`${URL}/product/id`, {
+        headers: { "Access-Control-Allow-Origin": `${URL}/product/id` },
+        params: { id: productId }
+      })
+      .then(result => {
+        console.log("6yyy", result.data);
+        this.setState({ productName: result.data[0].name });
+      })
+      .catch("Could not load chosen photo at client view");
   }
 
   handleClick(e) {
