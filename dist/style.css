@@ -52,7 +52,7 @@ html {
 .fourthThumbnail {
   display: inline-block;
   border-width: 1px;
-  opacity: 0.3;
+  /* opacity: 0.3; */
   background-color: white;
   width: 106px;
   height: 106px;
@@ -89,7 +89,7 @@ html {
 .photosVerticalFourth {
   position: relative;
   top: 50%;
-  opacity: 50%;
+  opacity: 0.3;
   transform: perspective(1px) translateY(-50%);
   /* vertical-align: center; */
   /* margin: 5% auto; */

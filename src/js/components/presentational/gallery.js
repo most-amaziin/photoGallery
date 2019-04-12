@@ -33,11 +33,10 @@ const Gallery = props => {
       );
     } else if (props.productPhotos[3].id === photo.id) {
       return (
-        <tr class="photosContainerFourth">
+        <tr class="photosContainerFourth" onClick={props.toggleFullScreen}>
           <div className="fourthThumbnail">
             <img
               class="photosVerticalFourth"
-              onClick={props.toggleFullScreen}
               id={photo.id}
               src={photo.url}
               alt={`photo ${photo.id} for product ${photo.product_id}: 
