@@ -113,6 +113,7 @@ export default class FormContainer extends React.Component {
                 productPhotos={this.state.productPhotos}
                 productName={this.state.productName}
                 fullScreen={this.state.fullScreen}
+                toggleFullScreen={this.toggleFullScreen}
                 photo={this.state.photo}
               />
             </td>
