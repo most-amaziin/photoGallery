@@ -20,6 +20,20 @@ const View = props => {
     </div>
   );
 
+  const fullScreenPhoto = (
+    <div class="fullScreenContainer">
+      <img
+        onClick={props.toggleFullScreen}
+        class="fullScreen"
+        src={props.photo.url}
+        alt={`photo ${props.photo.id} for product ${props.photo.product_id}: 
+        ${props.productName}`}
+      />
+      <span class="previous" />
+      <span class="next" />
+    </div>
+  );
+
   console.log("all duh photos ", props.productPhotos);
 
   const carousalSlides = props.productPhotos.map(photo => {
@@ -180,7 +194,7 @@ const View = props => {
       </div>
     );
   } else {
-    return <div>{carouselView}</div>;
+    return <div>{fullScreenPhoto}</div>;
   }
 };
 

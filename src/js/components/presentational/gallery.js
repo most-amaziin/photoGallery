@@ -50,7 +50,7 @@ const Gallery = props => {
   });
 
   const photosHorizontal = props.productPhotos.map(photo => (
-    <td class="photosContainer">
+    <td class="thumbnailsContainerHorizontal">
       <div
         className={
           photo.id == props.photo.id ? "selectedThumbnail" : "thumbnail"
