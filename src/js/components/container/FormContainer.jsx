@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import axios from "axios";
 import Gallery from "../presentational/gallery";
 import View from "../presentational/view";
@@ -11,7 +10,7 @@ export default class FormContainer extends React.Component {
     super(props);
     this.state = {
       fullScreen: false,
-      productId: 15,
+      productId: 12,
       productPhotos: [],
       productName: "product photo",
       photo: {

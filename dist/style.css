@@ -1,4 +1,5 @@
 /* https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_image_zoom */
+
 html {
   box-sizing: border-box;
 }
@@ -11,14 +12,13 @@ html {
 .galleryVertical {
   vertical-align: top;
   cursor: pointer;
-  margin: 5px;
+  /* margin: 5px; */
 }
 
 .galleryHorizontal {
   vertical-align: center;
   align-items: center;
-  cursor: pointer;
-  margin: 5px;
+  /* margin: 5px; */
 }
 
 .selectedThumbnail {
@@ -77,23 +77,33 @@ html {
   cursor: pointer;
 }
 
-.view {
+/* .view {
   cursor: pointer;
   width: 75%;
   height: 75%;
   margin: 5px;
-}
+} */
 
 .photo-container {
   /* position: relative; */
-  margin: 5px;
-  max-height: 400px;
-  max-width: 400px;
+  margin-top: 5px;
+  margin-bottom: 0px;
+  width: 100%;
+  height: 444px;
+  cursor: pointer;
+  /* max-width: 400px; */
 }
 
+/* .photo-container:hover {
+  cursor: crosshair;
+} */
+
 .photo {
-  max-height: 600px;
-  max-width: 600px;
+  margin: 10px;
+  position: relative;
+  top: 50%;
+  transform: perspective(1px) translateY(-50%);
+  height: 444px;
 }
 
 .photo-zoom-lens {
