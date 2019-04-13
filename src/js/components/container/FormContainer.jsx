@@ -10,7 +10,7 @@ export default class FormContainer extends React.Component {
     super(props);
     this.state = {
       fullScreen: false,
-      productId: 12,
+      productId: 1,
       productPhotos: [],
       productName: "product photo",
       photo: {
