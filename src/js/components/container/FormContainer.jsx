@@ -99,9 +99,15 @@ export default class FormContainer extends React.Component {
       }
     }
 
-    if (e.target.className === "previous") {
+    if (
+      e.target.className === "previous arrowbutton" ||
+      e.target.className === "previousArrow"
+    ) {
       this.setState({ photo: prevPhoto });
-    } else if (e.target.className === "next") {
+    } else if (
+      e.target.className === "next arrowbutton" ||
+      e.target.className === "nextArrow"
+    ) {
       this.setState({ photo: nextPhoto });
     }
   }

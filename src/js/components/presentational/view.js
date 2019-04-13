@@ -30,10 +30,14 @@ const View = props => {
         ${props.productName}`}
       />
       <div class="previous arrowbutton" onClick={props.clickCarousel}>
-        <span class="arrow">&#8249;</span>
+        <span class="previousArrow" onClick={props.clickCarousel}>
+          &#8249;
+        </span>
       </div>
       <div class="next arrowbutton" onClick={props.clickCarousel}>
-        <span class="arrow">&#8250;</span>
+        <span class="nextArrow" onClick={props.clickCarousel}>
+          &#8250;
+        </span>
       </div>
     </div>
   );
