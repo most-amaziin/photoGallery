@@ -132,7 +132,7 @@ export default class FormContainer extends React.Component {
                 photo={this.state.photo}
               />
             </td>
-            <td id="full" class="view">
+            <td id="full">
               <View
                 photo={this.state.photo}
                 productPhotos={this.state.productPhotos}
