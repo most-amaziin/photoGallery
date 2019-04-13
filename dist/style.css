@@ -162,8 +162,8 @@ table {
 .fullScreenContainer {
   width: 100vw;
   height: 100vh;
-  background-color: white;
-  opacity: 1;
+  background: white;
+  opacity: 0.999;
   vertical-align: top;
   margin-top: 6px;
   margin-bottom: 0px;
