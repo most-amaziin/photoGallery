@@ -46,7 +46,7 @@ table {
   vertical-align: center;
   align-items: center;
   position: relative;
-  z-index: 2;
+  z-index: 3;
 }
 
 .thumbnail {
@@ -60,7 +60,7 @@ table {
   vertical-align: center;
   align-items: center;
   position: relative;
-  z-index: 2;
+  z-index: 3;
 }
 
 .fourthThumbnail {
@@ -75,7 +75,7 @@ table {
   vertical-align: center;
   align-items: center;
   position: relative;
-  z-index: 2;
+  z-index: 3;
 }
 
 .fourthThumbnailText {
@@ -83,7 +83,7 @@ table {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 3;
+  z-index: 4;
 }
 
 .thumbnail:hover {
@@ -184,12 +184,13 @@ table {
   margin-top: 6px;
   margin-bottom: 0px;
   text-align: center;
+  z-index: 1;
 }
 
 .fullScreen {
   position: relative;
   height: 80vh;
-  z-index: 1;
+  z-index: 2;
   object-fit: cover;
 }
 
@@ -208,7 +209,7 @@ table {
   background-color: white;
   border-radius: 50%;
   border-color: black;
-  z-index: 2;
+  z-index: 3;
   top: 50%;
   border: 1px solid #999999;
   color: #999999;
