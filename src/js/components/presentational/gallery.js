@@ -12,7 +12,7 @@ const Gallery = props => {
       props.productPhotos[2].id === photo.id
     ) {
       return (
-        <tr class="photosContainer">
+        <tr>
           <div
             className={
               photo.id == props.photo.id ? "selectedThumbnail" : "thumbnail"
@@ -31,7 +31,7 @@ const Gallery = props => {
       );
     } else if (props.productPhotos[3].id === photo.id) {
       return (
-        <tr class="photosContainerFourth" onClick={props.toggleFullScreen}>
+        <tr onClick={props.toggleFullScreen}>
           <div className="fourthThumbnail">
             <img
               class="photosVerticalFourth"
@@ -55,7 +55,7 @@ const Gallery = props => {
         }
       >
         <img
-          class={"photosHorizontal"}
+          class="photosHorizontal"
           onClick={props.handleClick}
           id={photo.id}
           src={photo.url}

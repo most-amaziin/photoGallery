@@ -1,18 +1,8 @@
 /* https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_image_zoom */
 
-html {
-  box-sizing: border-box;
-}
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
-
 .galleryVertical {
   vertical-align: top;
   cursor: pointer;
-  /* margin: 5px; */
 }
 
 .photoVertical {
@@ -29,16 +19,13 @@ table {
   justify-content: center;
   align-items: center;
   width: 100vw;
-  height: 10vh;
-  /* margin: auto; */
+  margin-top: 10px;
 }
 
 .galleryHorizontal {
-  /* align-content: center; */
   vertical-align: center;
   display: flex;
   justify-content: center;
-  /* text-align: center; */
 }
 
 .selectedThumbnail {
@@ -103,8 +90,6 @@ table {
   position: relative;
   top: 50%;
   transform: perspective(1px) translateY(-50%);
-  /* vertical-align: center; */
-  /* margin: 5% auto; */
   max-height: 100px;
   max-width: 100px;
   cursor: pointer;
@@ -115,8 +100,6 @@ table {
   top: 50%;
   opacity: 0.3;
   transform: perspective(1px) translateY(-50%);
-  /* vertical-align: center; */
-  /* margin: 5% auto; */
   max-height: 100px;
   max-width: 100px;
   cursor: pointer;
@@ -128,7 +111,6 @@ table {
   transform: translate(-50%, -50%);
   vertical-align: center;
   align-items: center;
-  /* margin: 5% auto; */
   max-height: 100px;
   max-width: 100px;
   cursor: pointer;
@@ -139,12 +121,9 @@ table {
 }
 
 .photo-container {
-  /* background-color: violet; */
-  /* background-size: 100vw; */
   vertical-align: top;
   margin-top: 6px;
   margin-bottom: 0px;
-  /* padding-right: 50%; */
   text-align: center;
   width: 100%;
   max-height: 660px;
@@ -157,7 +136,6 @@ table {
 
 .photo {
   max-height: 460px;
-  /* opacity: 0.2; */
   height: auto;
   width: 100%;
   position: relative;
@@ -170,7 +148,6 @@ table {
 .photo-zoom-lens {
   position: absolute;
   border: 1px solid #d4d4d4;
-  /*set the size of the lens:*/
   width: 40px;
   height: 40px;
   cursor: crosshair;
@@ -178,16 +155,14 @@ table {
 
 .photo-zoom-result {
   border: 1px solid #d4d4d4;
-  /*set the size of the result div:*/
   width: 300px;
   height: 300px;
 }
 
 .fullScreenContainer {
-  /* background-color: white; */
-  /* background-size: 100vw; */
   width: 100vw;
-  height: 90vh;
+  height: 100vh;
+  background-color: grey;
   vertical-align: top;
   margin-top: 6px;
   margin-bottom: 0px;
