@@ -24,13 +24,19 @@ table {
   text-align: center;
 }
 
+.galleryHorizontalContainer {
+  display: flex;
+  margin: auto;
+}
+
 .galleryHorizontal {
+  /* align-content: center; */
   vertical-align: center;
-  align-items: center;
-  text-align: center;
-  left: 50%;
+  display: flex;
+  justify-content: center;
+  /* text-align: center; */
+  width: 100%;
   height: 10vh;
-  /* margin: 5px; */
 }
 
 .selectedThumbnail {
@@ -131,7 +137,7 @@ table {
 }
 
 .photo-container {
-  background-color: violet;
+  /* background-color: violet; */
   /* background-size: 100vw; */
   vertical-align: top;
   margin-top: 6px;
@@ -176,8 +182,8 @@ table {
 }
 
 .fullScreenContainer {
-  background-color: white;
-  background-size: 100vw;
+  /* background-color: white; */
+  /* background-size: 100vw; */
   width: 100vw;
   height: 90vh;
   vertical-align: top;

@@ -157,7 +157,7 @@ export default class FormContainer extends React.Component {
               clickCarousel={this.clickCarousel}
             />
           </div>
-          <table>
+          <table class="galleryHorizontalContainer">
             <tr id="gallery" class="galleryHorizontal">
               <Gallery
                 handleClick={this.handleClick}
