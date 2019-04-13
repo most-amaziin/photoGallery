@@ -29,16 +29,14 @@ const View = props => {
         alt={`photo ${props.photo.id} for product ${props.photo.product_id}: 
         ${props.productName}`}
       />
-      <div class="previous" onClick={props.clickCarousel}>
-        {"<"}
+      <div class="previous arrowbutton" onClick={props.clickCarousel}>
+        <span class="arrow">&#8249;</span>
       </div>
-      <div class="next" onClick={props.clickCarousel}>
-        {">"}
+      <div class="next arrowbutton" onClick={props.clickCarousel}>
+        <span class="arrow">&#8250;</span>
       </div>
     </div>
   );
-
-  console.log("all duh photos ", props.productPhotos);
 
   const carousalSlides = props.productPhotos.map(photo => {
     if (photo.url !== props.photo.url) {

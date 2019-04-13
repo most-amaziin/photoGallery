@@ -184,48 +184,41 @@ table {
   z-index: 1;
 }
 
-.previous {
+.arrowbutton {
   position: absolute;
   height: 38px;
   width: 38px;
   background-color: white;
   border-radius: 50%;
   border-color: black;
-  border-width: 100px;
-  border-radius: 50%;
-  left: 5%;
   z-index: 2;
   top: 50%;
-  border: 2px solid 999999;
-  color: 999999;
+  border: 1px solid #999999;
+  color: #999999;
   text-align: center;
-  vertical-align: 50%;
-  font-size: 30px;
-  font-weight: bold;
-  line-height: 38px;
-  box-shadow: 0 0 3px gray;
+  box-shadow: 0 0 1px gray;
   cursor: pointer;
 }
 
 .next {
-  position: absolute;
-  height: 38px;
-  width: 38px;
-  background-color: white;
-  border-radius: 50%;
-  border-color: black;
-  border-width: 100px;
-  border-radius: 50%;
   right: 5%;
-  z-index: 2;
-  top: 50%;
-  border: 2px solid 999999;
-  color: 999999;
-  text-align: center;
-  vertical-align: 50%;
-  font-size: 30px;
+}
+
+.previous {
+  left: 5%;
+}
+
+.arrowbutton:hover {
+  background-color: #cacaca;
+}
+
+.arrow {
+  font-size: 38px;
   font-weight: bold;
   line-height: 38px;
-  box-shadow: 0 0 3px gray;
-  cursor: pointer;
+  position: absolute;
+  color: black;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

@@ -1,7 +1,5 @@
 import React from "react";
 
-// console.log("TEST :", photo.id, props.photoId);
-
 const Gallery = props => {
   let textOnFourthThumbnail = "";
   if (props.productPhotos.length > 3) {

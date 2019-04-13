@@ -10,7 +10,7 @@ export default class FormContainer extends React.Component {
     super(props);
     this.state = {
       fullScreen: false,
-      productId: 12,
+      productId: 1,
       productPhotos: [],
       productName: "product photo",
       photo: {
@@ -26,7 +26,6 @@ export default class FormContainer extends React.Component {
   }
 
   componentDidMount() {
-    console.log("1ZZZ");
     window.addEventListener("updateProdId", this.handleUpdateProdId.bind(this));
     const currentPhoto = this.state.photo.id;
     const currentProduct = this.state.productName;
@@ -35,7 +34,6 @@ export default class FormContainer extends React.Component {
   }
 
   handleUpdateProdId(event) {
-    console.log("event.detail ", event);
     if (event.detail) {
       const newProductId = event.detail;
       this.setState({ productId: newProductId });
@@ -47,7 +45,6 @@ export default class FormContainer extends React.Component {
   getProductPics(productId = this.state.productId) {
     // axios.get(`${host}:3000/api/reviews`, { headers: { productid: id, 'Access-Control-Allow-Origin': `${host}:3000/api/reviews` } })
 
-    console.log("URL :", URL);
     axios
       .get(`${URL}/photos`, {
         headers: { "Access-Control-Allow-Origin": `${URL}/photos` },
@@ -56,9 +53,7 @@ export default class FormContainer extends React.Component {
       .then(results => {
         this.setState(
           { productPhotos: results.data, photo: results.data[0] },
-          () => {
-            console.log("6ZZZ");
-          }
+          () => {}
         );
       })
       .catch("Could not load product photos at client gallery");
@@ -71,7 +66,6 @@ export default class FormContainer extends React.Component {
         params: { id: productId }
       })
       .then(result => {
-        console.log("6yyy", result.data);
         this.setState({ productName: result.data[0].name });
       })
       .catch("Could not load chosen photo at client view");
@@ -93,13 +87,10 @@ export default class FormContainer extends React.Component {
     let photosArray = this.state.productPhotos;
     let prevPhoto = this.state.photo;
     let nextPhoto = this.state.photo;
-    console.log("clicked carousel", photosArray.length);
 
     if (photosArray.length > 1) {
       for (let i = 0; i < photosArray.length; i++) {
-        console.log("1a :", photosArray[i].id, " 2a :", currentPhotoId);
         if (photosArray[i].id === Number(currentPhotoId)) {
-          console.log("match case");
           if (photosArray[i - 1]) prevPhoto = photosArray[i - 1];
           else prevPhoto = photosArray[photosArray.length - 1];
           if (photosArray[i + 1]) nextPhoto = photosArray[i + 1];
@@ -116,7 +107,6 @@ export default class FormContainer extends React.Component {
   }
 
   toggleFullScreen(e) {
-    console.log("FS toggle :", this.state.fullScreen);
     if (this.state.fullScreen === false) this.setState({ fullScreen: true });
     else this.setState({ fullScreen: false });
   }
