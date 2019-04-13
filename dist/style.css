@@ -162,7 +162,7 @@ table {
 .fullScreenContainer {
   width: 100vw;
   height: 100vh;
-  background: white;
+  background: #eeeeee;
   opacity: 0.999;
   vertical-align: top;
   margin-top: 6px;
@@ -216,7 +216,7 @@ table {
 }
 
 .arrowbutton:hover {
-  background-color: #f5f5f5;
+  background-color: #eeeeee;
 }
 
 .previousArrow {
