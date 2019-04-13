@@ -15,10 +15,16 @@ html {
   /* margin: 5px; */
 }
 
+table {
+  position: relative;
+  text-align: center;
+}
+
 .galleryHorizontal {
   vertical-align: center;
   align-items: center;
   text-align: center;
+  left: 50%;
   /* margin: 5px; */
 }
 
@@ -182,18 +188,42 @@ html {
   position: absolute;
   height: 38px;
   width: 38px;
-  background-color: #999999;
+  background-color: white;
+  border-radius: 50%;
+  border-color: black;
+  border-width: 100px;
   border-radius: 50%;
   left: 5%;
   z-index: 2;
+  top: 50%;
+  border: 2px solid 999999;
+  color: 999999;
+  text-align: center;
+  vertical-align: 50%;
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 38px;
+  box-shadow: 0 0 3px gray;
 }
 
 .next {
   position: absolute;
   height: 38px;
   width: 38px;
-  background-color: red;
+  background-color: white;
+  border-radius: 50%;
+  border-color: black;
+  border-width: 100px;
   border-radius: 50%;
   right: 5%;
   z-index: 2;
+  top: 50%;
+  border: 2px solid 999999;
+  color: 999999;
+  text-align: center;
+  vertical-align: 50%;
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 38px;
+  box-shadow: 0 0 3px gray;
 }

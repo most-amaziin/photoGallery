@@ -10,7 +10,7 @@ export default class FormContainer extends React.Component {
     super(props);
     this.state = {
       fullScreen: false,
-      productId: 13,
+      productId: 12,
       productPhotos: [],
       productName: "product photo",
       photo: {
@@ -89,11 +89,27 @@ export default class FormContainer extends React.Component {
   }
 
   clickCarousel(e) {
-    document.getElementsByClassName("carousel-item active").className =
-      "carousel-item";
-    e.target.parent().className = "carousel-item-active";
-    // <div class="carousel-inner">
-    //     <div class="carousel-item active"></div>
+    const currentPhotoId = this.state.photo.id;
+    const photosArray = this.state.productPhotos;
+    let prevPhoto = this.state.photo;
+    let nextPhoto = this.state.photo;
+
+    if (photosArray.length > 1) {
+      for (let i = 0; i < photosArray.length; i++) {
+        if (photosArray[i].id === currentPhotoId) {
+          if (photosArray[i - 1]) prevPhoto = photosArray[i - 1];
+          else prevPhoto = photosArray[photosArray.length - 1];
+          if (photosArray[i + 1]) nextPhoto = photosArray[i + 1];
+          else nextPhoto = photosArray[0];
+        }
+      }
+    }
+
+    if (e.target.className === "previous") {
+      this.setState({ photo: prevPhoto });
+    } else if (e.target.className === "next") {
+      this.setState({ photo: nextPhoto });
+    }
   }
 
   toggleFullScreen(e) {
@@ -139,6 +155,7 @@ export default class FormContainer extends React.Component {
               productName={this.state.productName}
               fullScreen={this.state.fullScreen}
               toggleFullScreen={this.toggleFullScreen}
+              clickCarousel={this.clickCarousel}
             />
           </div>
           <table>
@@ -149,7 +166,6 @@ export default class FormContainer extends React.Component {
                 productName={this.state.productName}
                 fullScreen={this.state.fullScreen}
                 toggleFullScreen={this.toggleFullScreen}
-                clickCarousel={this.clickCarousel}
                 photo={this.state.photo}
               />
             </tr>

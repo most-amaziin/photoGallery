@@ -29,8 +29,12 @@ const View = props => {
         alt={`photo ${props.photo.id} for product ${props.photo.product_id}: 
         ${props.productName}`}
       />
-      <span class="previous" />
-      <span class="next" />
+      <div class="previous" onClick={props.clickCarousel}>
+        {"<"}
+      </div>
+      <div class="next" onClick={props.clickCarousel}>
+        {">"}
+      </div>
     </div>
   );
 
