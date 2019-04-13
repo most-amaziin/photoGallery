@@ -121,7 +121,7 @@ export default class FormContainer extends React.Component {
     if (this.state.fullScreen === false) {
       return (
         <div>
-          <table>
+          <table class="verticalContainer">
             <td id="gallery" class="galleryVertical">
               <Gallery
                 handleClick={this.handleClick}
