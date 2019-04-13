@@ -130,7 +130,7 @@ table {
   margin-bottom: 0px;
   text-align: center;
   width: 100%;
-  max-height: 460px;
+  max-height: 660px;
   cursor: pointer;
 }
 
@@ -139,15 +139,14 @@ table {
 }
 
 .photo {
-  width: 100%;
-  min-width: 50px;
-  min-height: 50px;
+  max-height: 460px;
   height: auto;
+  width: 100%;
   position: relative;
   z-index: 1;
   vertical-align: top;
-  text-align: left;
-  object-fit: cover;
+  text-align: center;
+  object-fit: contain;
 }
 
 .photo-zoom-lens {
