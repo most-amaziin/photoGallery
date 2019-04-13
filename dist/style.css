@@ -33,7 +33,7 @@ table {
   border-style: solid;
   border-color: black;
   border-width: 1px;
-  background-color: white;
+  background-color: #eeeeee;
   width: 106px;
   height: 106px;
   text-align: center;
@@ -47,7 +47,7 @@ table {
 .thumbnail {
   display: inline-block;
   border-width: 1px;
-  background-color: white;
+  background-color: #eeeeee;
   width: 106px;
   height: 106px;
   text-align: center;
@@ -62,7 +62,7 @@ table {
   display: inline-block;
   border-width: 1px;
   /* opacity: 0.3; */
-  background-color: white;
+  background-color: #eeeeee;
   width: 106px;
   height: 106px;
   text-align: center;
