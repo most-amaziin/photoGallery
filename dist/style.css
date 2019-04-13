@@ -162,12 +162,14 @@ table {
 .fullScreenContainer {
   width: 100vw;
   height: 100vh;
-  background-color: grey;
+  background-color: white;
+  opacity: 1;
   vertical-align: top;
   margin-top: 6px;
   margin-bottom: 0px;
   text-align: center;
   z-index: 1;
+  object-fit: contain;
 }
 
 .fullScreen {
