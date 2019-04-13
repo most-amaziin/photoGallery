@@ -128,11 +128,12 @@ table {
 }
 
 .photo-container {
-  background-color: violet;
+  /* background-color: violet; */
   /* background-size: 100vw; */
   vertical-align: top;
   margin-top: 6px;
   margin-bottom: 0px;
+  padding-right: 50%;
   text-align: center;
   width: 100vw;
   max-height: 660px;
@@ -145,7 +146,7 @@ table {
 
 .photo {
   max-height: 460px;
-  opacity: 0.2;
+  /* opacity: 0.2; */
   height: auto;
   width: 100%;
   position: relative;
@@ -173,7 +174,7 @@ table {
 
 .fullScreenContainer {
   background-color: white;
-  /* background-size: 100vw; */
+  background-size: 100vw;
   width: 100vw;
   height: 90vh;
   vertical-align: top;
