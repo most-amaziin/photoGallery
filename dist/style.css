@@ -28,6 +28,8 @@ table {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100vw;
+  height: 10vh;
   /* margin: auto; */
 }
 
@@ -37,8 +39,6 @@ table {
   display: flex;
   justify-content: center;
   /* text-align: center; */
-  width: 100vw;
-  height: 10vh;
 }
 
 .selectedThumbnail {
