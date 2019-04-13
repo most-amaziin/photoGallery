@@ -22,7 +22,7 @@ const Gallery = props => {
           >
             <img
               class="photosVertical"
-              onClick={props.clickPhoto}
+              onClick={props.handleClick}
               id={photo.id}
               src={photo.url}
               alt={`photo ${photo.id} for product ${photo.product_id}: 
@@ -58,7 +58,7 @@ const Gallery = props => {
       >
         <img
           class={"photosHorizontal"}
-          onClick={props.clickPhoto}
+          onClick={props.handleClick}
           id={photo.id}
           src={photo.url}
           alt={`photo ${photo.id} for product ${photo.product_id}: 

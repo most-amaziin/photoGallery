@@ -81,22 +81,25 @@ export default class FormContainer extends React.Component {
     this.setState({
       photo: {
         id: e.target.id,
-        url: e.target.src,
+        url: e.target.src
         //THIS WILL UPDATE WHEN CONNECTING TO OTHER COMPONENTS
-        product_id: this.state.productId
+        // product_id: this.state.productId
       }
     });
   }
 
   clickCarousel(e) {
-    const currentPhotoId = this.state.photo.id;
-    const photosArray = this.state.productPhotos;
+    let currentPhotoId = this.state.photo.id;
+    let photosArray = this.state.productPhotos;
     let prevPhoto = this.state.photo;
     let nextPhoto = this.state.photo;
+    console.log("clicked carousel", photosArray.length);
 
     if (photosArray.length > 1) {
       for (let i = 0; i < photosArray.length; i++) {
-        if (photosArray[i].id === currentPhotoId) {
+        console.log("1a :", photosArray[i].id, " 2a :", currentPhotoId);
+        if (photosArray[i].id === Number(currentPhotoId)) {
+          console.log("match case");
           if (photosArray[i - 1]) prevPhoto = photosArray[i - 1];
           else prevPhoto = photosArray[photosArray.length - 1];
           if (photosArray[i + 1]) nextPhoto = photosArray[i + 1];
@@ -125,7 +128,7 @@ export default class FormContainer extends React.Component {
           <table>
             <td id="gallery" class="galleryVertical">
               <Gallery
-                clickPhoto={this.handleClick}
+                handleClick={this.handleClick}
                 productPhotos={this.state.productPhotos}
                 productName={this.state.productName}
                 fullScreen={this.state.fullScreen}
@@ -161,7 +164,7 @@ export default class FormContainer extends React.Component {
           <table>
             <tr id="gallery" class="galleryHorizontal">
               <Gallery
-                clickPhoto={this.handleClick}
+                handleClick={this.handleClick}
                 productPhotos={this.state.productPhotos}
                 productName={this.state.productName}
                 fullScreen={this.state.fullScreen}

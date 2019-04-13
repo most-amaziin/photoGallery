@@ -204,6 +204,7 @@ table {
   font-weight: bold;
   line-height: 38px;
   box-shadow: 0 0 3px gray;
+  cursor: pointer;
 }
 
 .next {
@@ -226,4 +227,5 @@ table {
   font-weight: bold;
   line-height: 38px;
   box-shadow: 0 0 3px gray;
+  cursor: pointer;
 }
