@@ -247,7 +247,7 @@ table {
   border-radius: 50%;
   /* border-color: black; */
   z-index: 3;
-  top: 30%;
+  top: 23%;
   /* border: 1px solid #999999; */
   /* color: white; */
   text-align: center;
@@ -261,9 +261,10 @@ table {
 
 .X {
   color: white;
-  /* transform: rotate(45deg); */
-  font-size: 30px;
-  padding-bottom: 4px;
-  padding-left: 1.5px;
+  padding-bottom: 2px;
+  padding-left: 1px;
   z-index: 3;
+  font-family: inherit;
+  font-weight: 100;
+  font-size: large;
 }
