@@ -22,6 +22,11 @@ const View = props => {
 
   const fullScreenPhoto = (
     <div class="fullScreenContainer">
+      {/* <div class="closeFullScreen" onClick={props.toggleFullScreen}>
+        <span class="fullScreenX" onClick={props.toggleFullScreen}>
+          X
+        </span>
+      </div> */}
       <img
         onClick={props.toggleFullScreen}
         class="fullScreen"
@@ -37,11 +42,6 @@ const View = props => {
       <div class="next arrowbutton" onClick={props.clickCarousel}>
         <span class="nextArrow" onClick={props.clickCarousel}>
           &#8250;
-        </span>
-      </div>
-      <div class="closeFullScreen" onClick={props.toggleFullScreen}>
-        <span class="fullScreenX" onClick={props.toggleFullScreen}>
-          X
         </span>
       </div>
     </div>
