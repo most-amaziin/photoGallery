@@ -247,7 +247,7 @@ table {
   border-radius: 50%;
   /* border-color: black; */
   z-index: 3;
-  top: 3%;
+  top: 10%;
   /* border: 1px solid #999999; */
   /* color: white; */
   text-align: center;
@@ -265,4 +265,5 @@ table {
   font-size: 30px;
   padding-bottom: 4px;
   padding-left: 1.5px;
+  font: arial;
 }
