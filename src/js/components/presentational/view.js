@@ -39,8 +39,8 @@ const View = props => {
           &#8250;
         </span>
       </div>
-      <div class="close" onClick={props.toggleFullScreen}>
-        <span class="X" onClick={props.toggleFullScreen}>
+      <div class="closeFullScreen" onClick={props.toggleFullScreen}>
+        <span class="fullScreenX" onClick={props.toggleFullScreen}>
           X
         </span>
       </div>

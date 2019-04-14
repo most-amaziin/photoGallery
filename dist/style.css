@@ -239,19 +239,15 @@ table {
   padding-bottom: 5px;
 }
 
-.close {
+.closeFullScreen {
   position: absolute;
   height: 30px;
   width: 30px;
   background-color: black;
   border-radius: 50%;
-  /* border-color: black; */
   z-index: 3;
   top: 23%;
-  /* border: 1px solid #999999; */
-  /* color: white; */
   text-align: center;
-  /* box-shadow: 0 0 1px gray; */
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -259,7 +255,11 @@ table {
   right: 6%;
 }
 
-.X {
+.closeFullScreen:hover {
+  cursor: pointer;
+}
+
+.fullScreenX {
   color: white;
   padding-bottom: 2px;
   padding-left: 1px;
@@ -267,4 +267,8 @@ table {
   font-family: inherit;
   font-weight: 100;
   font-size: large;
+}
+
+.X:hover {
+  cursor: pointer;
 }
