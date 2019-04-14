@@ -10,7 +10,7 @@ export default class FormContainer extends React.Component {
     super(props);
     this.state = {
       fullScreen: false,
-      productId: 1,
+      productId: 12,
       productPhotos: [],
       productName: "product photo",
       photo: {
@@ -22,7 +22,6 @@ export default class FormContainer extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     this.toggleFullScreen = this.toggleFullScreen.bind(this);
     this.clickCarousel = this.clickCarousel.bind(this);
-    // this.clickCarousel = this.clickCarousel.bind(this);
   }
 
   componentDidMount() {
@@ -43,8 +42,6 @@ export default class FormContainer extends React.Component {
   }
 
   getProductPics(productId = this.state.productId) {
-    // axios.get(`${host}:3000/api/reviews`, { headers: { productid: id, 'Access-Control-Allow-Origin': `${host}:3000/api/reviews` } })
-
     axios
       .get(`${URL}/photos`, {
         headers: { "Access-Control-Allow-Origin": `${URL}/photos` },
@@ -76,8 +73,6 @@ export default class FormContainer extends React.Component {
       photo: {
         id: e.target.id,
         url: e.target.src
-        //THIS WILL UPDATE WHEN CONNECTING TO OTHER COMPONENTS
-        // product_id: this.state.productId
       }
     });
   }

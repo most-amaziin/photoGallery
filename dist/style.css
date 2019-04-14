@@ -238,3 +238,31 @@ table {
   align-items: center;
   padding-bottom: 5px;
 }
+
+.close {
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  background-color: black;
+  border-radius: 50%;
+  /* border-color: black; */
+  z-index: 3;
+  top: 3%;
+  /* border: 1px solid #999999; */
+  /* color: white; */
+  text-align: center;
+  /* box-shadow: 0 0 1px gray; */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 6%;
+}
+
+.X {
+  color: white;
+  transform: rotate(45deg);
+  font-size: 30px;
+  padding-bottom: 4px;
+  padding-left: 1.5px;
+}
