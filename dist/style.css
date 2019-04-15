@@ -145,6 +145,8 @@ table {
   object-fit: contain;
 }
 
+/* TEST BEGIN */
+
 .photo-zoom-lens {
   position: absolute;
   border: 1px solid #d4d4d4;
@@ -159,6 +161,8 @@ table {
   height: 300px;
 }
 
+/* TEST END */
+
 .fullScreenContainer {
   width: 100vw;
   height: 100vh;
@@ -170,13 +174,15 @@ table {
   text-align: center;
   z-index: 1;
   object-fit: contain;
+  position: relative;
 }
 
 .fullScreen {
   position: relative;
+  width: 100vw;
   height: 80vh;
   z-index: 2;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .fullScreen:hover {
