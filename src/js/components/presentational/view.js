@@ -14,12 +14,6 @@ const View = props => {
     </div>
   );
 
-  const zoomView = (
-    <div>
-      <div id="zoomView" class="photo-zoom-result" />
-    </div>
-  );
-
   const fullScreenPhoto = (
     <div class="fullScreenContainer">
       {/* <div class="closeFullScreen" onClick={props.toggleFullScreen}>

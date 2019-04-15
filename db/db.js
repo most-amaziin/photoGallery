@@ -19,7 +19,6 @@ client.connect(err => {
 
 // user clicks a product, send back all product photos object
 const getProductPics = (productId, cb) => {
-  console.log("3ZZZ", productId);
   client.query(
     `SELECT * FROM photos WHERE product_id = ${productId}`,
     (err, results) => {
@@ -32,7 +31,6 @@ const getProductPics = (productId, cb) => {
         );
         cb(err);
       } else {
-        console.log("4ZZZ", results.rows);
         cb(null, results.rows);
       }
     }

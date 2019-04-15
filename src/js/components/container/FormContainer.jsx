@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
-import Gallery from "../presentational/gallery";
-import View from "../presentational/view";
+import Gallery from "../presentational/Gallery";
+import View from "../presentational/View";
 
 const URL = `http://ec2-52-15-195-39.us-east-2.compute.amazonaws.com`;
 

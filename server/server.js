@@ -1,7 +1,6 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-// require('dotenv').config();
 require("dotenv").config({ path: __dirname + "/../.env" });
 
 const bodyParser = require("body-parser");
@@ -14,8 +13,6 @@ app.use(express.static("dist"));
 //user clicks a product, request all product photos
 app.get("/photos", (req, res) => {
   const productId = req.query.id;
-  console.log("2ZZZ :", productId);
-  // console.log('RP :', req)
   db.getProductPics(productId, (error, results) => {
     if (error) {
       console.log("server failed to load photos ", error);
