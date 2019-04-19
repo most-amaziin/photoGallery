@@ -2,11 +2,11 @@ const { Client } = require("pg");
 require("dotenv").config({ path: __dirname + "/../.env" });
 
 const client = new Client({
-  user: process.env.DB_USER,
-  host: process.env.DB_HOST,
-  database: process.env.DB_DB,
-  password: process.env.DB_PASS,
-  port: process.env.DB_PORT
+  user: 'andersaustin',
+  // host: 'http://localhost',
+  database: 'photogallery',
+  password: 'hackreactor'
+  // port: 3005
 });
 
 client.connect(err => {
@@ -58,4 +58,16 @@ const getProductName = (productId, cb) => {
   );
 };
 
-module.exports = { getProductPics, getProductName };
+// const seed = (insertValues, cb) => {
+//   client.query(`INSERT INTO photos (url, product_id) VALUES ${insertValues}`, (err, result) => {
+//     if (err) {
+//       console.log('err');
+//       cb(err);
+//     } else {
+//       cb(null, 'success')
+//     }
+//   });
+
+// };
+
+module.exports = { getProductPics, getProductName, seed };

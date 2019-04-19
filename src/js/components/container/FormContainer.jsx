@@ -1,9 +1,9 @@
 import React from "react";
 import axios from "axios";
-import Gallery from "../presentational/Gallery";
-import View from "../presentational/View";
+import Gallery from "../presentational/gallery.js";
+import View from "../presentational/view.js";
 
-const URL = `http://ec2-52-15-195-39.us-east-2.compute.amazonaws.com`;
+const URL = `http://localhost:3005`;
 
 export default class FormContainer extends React.Component {
   constructor(props) {
