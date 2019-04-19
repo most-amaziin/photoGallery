@@ -15,7 +15,7 @@ export default class FormContainer extends React.Component {
       productName: "product photo",
       photo: {
         id: 1,
-        url: "https://s3.amazonaws.com/fecphotogallery2019/photos/16_2.jpg",
+        url: "https://s3.amazonaws.com/fecphotogallery2019/photos/1_1.jpg",
         product_id: 1
       }
     };
