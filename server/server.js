@@ -52,7 +52,7 @@ app.post('/seed', (req, res) => {
     for (let j = 0; j < 1000; j++) {
       i1 = imagesArray[Math.floor(Math.random()*334)][1];
       prodId += 1;
-      insertString += `${prodId},'${i1}',${prodId}\n`
+      insertString += `${prodId},${i1},${prodId}\n`
     }
     fs.appendFile('photos.csv',insertString, (err, res) => {
       if (err) {
@@ -66,7 +66,7 @@ app.post('/seed', (req, res) => {
 
 })
 
-const PORT = process.env.PORT || 3005;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
 });
