@@ -43,14 +43,12 @@ export default class FormContainer extends React.Component {
   }
 
   getProductPics(productId = this.state.productId) {
-    console.log(productId);
     axios
       .get(`${URL}/photos`, {
         headers: { "Access-Control-Allow-Origin": `${URL}/photos` },
         params: { id: productId }
       })
       .then(results => {
-        console.log(results)
         for (let val of results.data) {
           val.url = val.url.slice(1,-1)
         }

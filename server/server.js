@@ -6,7 +6,10 @@ const imageArray = require('../imageData');
 const fs = require('file-system');
 
 const bodyParser = require("body-parser");
-const db = require("../db/db");
+//postgres
+// const db = require("../db/db");
+//mongo
+const db = require('../db/mongoDB');
 
 app.use(bodyParser.json({ urlencoded: false }));
 app.use(cors());
@@ -20,7 +23,7 @@ app.get("/photos", (req, res) => {
       console.log("server failed to load photos ", error);
       res.end();
     } else {
-      console.log("5ZZZ", results);
+      // console.log("5ZZZ", results);
       res.send(results);
     }
   });
@@ -34,7 +37,7 @@ app.get("/product/id", (req, res) => {
       console.log("server failed to get product name ", error);
       res.end();
     } else {
-      console.log("5YYY", result);
+      // console.log("5YYY", result);
       res.send(result);
     }
   });
