@@ -70,4 +70,4 @@ const getProductName = (productId, cb) => {
 
 // };
 
-module.exports = { getProductPics, getProductName, seed };
+module.exports = { getProductPics, getProductName};
