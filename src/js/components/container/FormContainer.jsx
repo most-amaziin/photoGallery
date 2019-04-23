@@ -51,6 +51,7 @@ export default class FormContainer extends React.Component {
       .then(results => {
         for (let val of results.data) {
           val.url = val.url.slice(1,-1)
+          
         }
         this.setState(
           { productPhotos: results.data, photo: results.data[0] });
