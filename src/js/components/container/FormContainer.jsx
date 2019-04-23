@@ -3,7 +3,7 @@ import axios from "axios";
 import Gallery from "../presentational/gallery.js";
 import View from "../presentational/view.js";
 
-const URL = `http://localhost:3005`;
+const URL = `http://ec2-18-188-249-142.us-east-2.compute.amazonaws.com/`;
 
 export default class FormContainer extends React.Component {
   constructor(props) {
@@ -51,7 +51,7 @@ export default class FormContainer extends React.Component {
       .then(results => {
         for (let val of results.data) {
           val.url = val.url.slice(1,-1)
-          
+
         }
         this.setState(
           { productPhotos: results.data, photo: results.data[0] });
