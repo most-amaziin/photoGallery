@@ -9,7 +9,7 @@ module.exports = {
     deploy: {
       production: {
         user: 'ubuntu',
-        host: 'ec2-18-188-249-142.us-east-2.compute.amazonaws.com/',
+        host: 'ec2-18-188-249-142.us-east-2.compute.amazonaws.com',
         key: '~/.ssh/FEC_Carousel.pem',
         ref: 'origin/master',
         repo: 'https://github.com/most-amaziin/photoGallery.git',
