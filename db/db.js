@@ -17,6 +17,7 @@ client.connect(err => {
   }
 });
 
+
 // user clicks a product, send back all product photos object
 const getProductPics = (productId, cb) => {
   client.query(
