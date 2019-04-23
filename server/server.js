@@ -94,6 +94,31 @@ app.delete('/delete', (req, res) => {
   });
 });
 
+//seed function
+app.post('/seed', (req, res) => {
+  let i1 = '';
+  let insertString = '';
+  const imagesArray = imageArray.imageArray
+
+  for (let i = 0; i < 1000; i++) {
+    insertString = '';
+    for (let j = 0; j < 1000; j++) {
+      i1 = imagesArray[Math.floor(Math.random()*334)][1];
+      prodId += 1;
+      insertString += `${prodId},${i1},${prodId}\n`
+    }
+    fs.appendFile('photos.csv',insertString, (err, res) => {
+      if (err) {
+        console.log(err);
+      } 
+    });
+  }
+
+  console.log('success');
+  res.end();
+
+})
+
 const PORT = process.env.PORT || 3005;
 app.listen(PORT, () => {
       console.log(`listening on port ${PORT}`);
@@ -134,29 +159,4 @@ app.post('/seed', (req, res) => {
 
 
 
-//seed function
-/*
-app.post('/seed', (req, res) => {
-  let i1 = '';
-  let insertString = '';
-  const imagesArray = imageArray.imageArray
 
-  for (let i = 0; i < 1000; i++) {
-    insertString = '';
-    for (let j = 0; j < 1000; j++) {
-      i1 = imagesArray[Math.floor(Math.random()*334)][1];
-      prodId += 1;
-      insertString += `${prodId},${i1},${prodId}\n`
-    }
-    fs.appendFile('photos.csv',insertString, (err, res) => {
-      if (err) {
-        console.log(err);
-      } 
-    });
-  }
-
-  console.log('success');
-  res.end();
-
-})
-*/
