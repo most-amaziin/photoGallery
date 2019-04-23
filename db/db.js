@@ -32,7 +32,6 @@ const getProductPics = (productId, cb) => {
         );
         cb(err);
       } else {
-        console.log('hello')
         cb(null, results.rows);
       }
     }

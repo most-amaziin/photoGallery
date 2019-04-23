@@ -29,15 +29,16 @@ app.use(express.static("dist"));
 //user clicks a product, request all product photos
 app.get("/photos", (req, res) => {
   const productId = req.query.id;
-  db.getProductPics(productId, (error, results) => {
-    if (error) {
-      console.log("server failed to load photos ", error);
-      res.end();
-    } else {
-      // console.log("5ZZZ", results);
-      res.send(results);
-    }
-  });
+  // db.getProductPics(productId, (error, results) => {
+  //   if (error) {
+  //     console.log("server failed to load photos ", error);
+  //     res.end();
+  //   } else {
+  //     // console.log("5ZZZ", results);
+  //     res.send(results);
+  //   }
+  // });
+  res.send('success');
 });
 
 //user clicks a product, request product name
