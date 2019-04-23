@@ -7,13 +7,24 @@ const fs = require('file-system');
 
 const bodyParser = require("body-parser");
 //postgres
-// const db = require("../db/db");
+const db = require("../db/db");
 //mongo
-const db = require('../db/mongoDB');
+// const db = require('../db/mongoDB');
 
 app.use(bodyParser.json({ urlencoded: false }));
 app.use(cors());
 app.use(express.static("dist"));
+
+// let nextRow;
+
+// fs.readFile('/home/andersaustin/Documents/HR_Github_Repos/SDC/photoGallery/photos.csv','utf8', (err, data) => {
+//   if (err) {
+//     console.log(err);
+//   } else {
+//     let blah = data.split('\n');
+//     nextRow = blah.length;
+//   }
+// })
 
 //user clicks a product, request all product photos
 app.get("/photos", (req, res) => {
@@ -44,34 +55,48 @@ app.get("/product/id", (req, res) => {
 });
 
 let prodId = 0;
-//seed function
-app.post('/seed', (req, res) => {
-  let i1 = '';
-  let insertString = '';
-  const imagesArray = imageArray.imageArray
 
-  for (let i = 0; i < 1000; i++) {
-    insertString = '';
-    for (let j = 0; j < 1000; j++) {
-      i1 = imagesArray[Math.floor(Math.random()*334)][1];
-      prodId += 1;
-      insertString += `${prodId},${i1},${prodId}\n`
+app.post('/post', (req, res) => {
+  let id = Math.floor(Math.random()*10000000)
+  let image = imageArray.imageArray[Math.floor(Math.random()*334)][1]
+  db.save(image, id, (err, data) => {
+    if (err) {
+      console.log(err)
+      res.end()
+    } else {
+      res.send(data)
     }
-    fs.appendFile('photos.csv',insertString, (err, res) => {
-      if (err) {
-        console.log(err);
-      } 
-    });
-  }
-
-  console.log('success');
-  res.end();
-
+  })
 })
+
+app.put('/put', (req, res) => {
+  let id = Math.floor(Math.random()*10000000)
+  let image = imageArray.imageArray[Math.floor(Math.random()*334)][1]
+
+  db.update(image, id, (err, data) => {
+    if (err) {
+      console.log(err)
+      res.end()
+    } else {
+      res.send(data)
+    }
+  })
+});
+
+app.delete('/delete', (req, res) => {
+  db.Delete((err, data) => {
+    if (err) {
+      console.log(err)
+      res.end();
+    } else {
+      res.send(data)
+    }
+  });
+});
 
 const PORT = process.env.PORT || 3005;
 app.listen(PORT, () => {
-  console.log(`listening on port ${PORT}`);
+      console.log(`listening on port ${PORT}`);
 });
 
 //old seed function, approximately 5:40
@@ -97,6 +122,36 @@ app.post('/seed', (req, res) => {
         console.log(err);
         res.end()
       }
+    });
+  }
+
+  console.log('success');
+  res.end();
+
+})
+*/
+
+
+
+
+//seed function
+/*
+app.post('/seed', (req, res) => {
+  let i1 = '';
+  let insertString = '';
+  const imagesArray = imageArray.imageArray
+
+  for (let i = 0; i < 1000; i++) {
+    insertString = '';
+    for (let j = 0; j < 1000; j++) {
+      i1 = imagesArray[Math.floor(Math.random()*334)][1];
+      prodId += 1;
+      insertString += `${prodId},${i1},${prodId}\n`
+    }
+    fs.appendFile('photos.csv',insertString, (err, res) => {
+      if (err) {
+        console.log(err);
+      } 
     });
   }
 

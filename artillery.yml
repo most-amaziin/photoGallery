@@ -1,0 +1,17 @@
+config:
+  target: 'http://localhost:3005'
+  http:
+    pool: 30
+  phases:
+    - duration: 10
+      arrivalRate: 2000
+scenarios:
+  - flow:
+    - get: 
+        url: "/get/?id=1"
+    - post: 
+        url: "/post"
+    - put:
+        url: "/put"
+    - delete: 
+        url: "/delete"

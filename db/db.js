@@ -58,6 +58,45 @@ const getProductName = (productId, cb) => {
   );
 };
 
+const save = (url, productId, cb) => {
+  client.query(`insert into photos (url, product_id) values (${url},${productId})`, (err, result) => {
+    if (err) {
+      console.log(err);
+      cb(err,null);
+    } else {
+      cb(null,result);
+    }
+  })
+};
+
+const update = (url, productId, cb) => {
+  client.query('select id from photos order by Id desc limit 1', (err, result) => {
+    let randomId = Math.floor(Math.random()*result)
+    client.query(`update photos set url = '${url}', product_id = ${productId} where id = ${randomId}`)
+  }, (err, data) => {
+    if (err) {
+      console.log(err);
+      cb(err,null);
+    } else {
+      cb(null, data);
+    }
+  })
+}
+
+const Delete = (cb) => {
+  client.query('select id from photos order by Id desc limit 1', (err, result) => {
+    let randomId = Math.floor(Math.random()*result)
+    client.query(`delete from photos where id = ${randomId}`)
+  }, (err, data) => {
+    if (err) {
+      console.log(err);
+      cb(err,null);
+    } else {
+      cb(null, data);
+    }
+  })
+}
+
 // const seed = (insertValues, cb) => {
 //   client.query(`INSERT INTO photos (url, product_id) VALUES ${insertValues}`, (err, result) => {
 //     if (err) {
@@ -70,4 +109,4 @@ const getProductName = (productId, cb) => {
 
 // };
 
-module.exports = { getProductPics, getProductName};
+module.exports = { getProductPics, getProductName, save, update, Delete};
