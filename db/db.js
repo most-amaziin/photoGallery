@@ -13,7 +13,7 @@ client.connect(err => {
   if (err) {
     console.log("error connecting to client at DB :", err);
   } else {
-    console.log("connected to server at DB");
+    console.log("connected to DB");
   }
 });
 
