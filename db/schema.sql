@@ -5,7 +5,7 @@
 CREATE TABLE photos (
   id SERIAL PRIMARY KEY,
   url VARCHAR (255) NOT NULL,
-  product_id INT not null
+  product_id INT not null --make unique somehow
 );
 
 CREATE TABLE pics (
@@ -13,7 +13,7 @@ CREATE TABLE pics (
   url varchar(255) NOT NULL,
   product_id int not null
 )
-CREATE TABLE products (
-  id SERIAL PRIMARY KEY,
-  name VARCHAR (255) NOT NULL
-);
+-- CREATE TABLE products (
+--   id SERIAL PRIMARY KEY,
+--   name VARCHAR (255) NOT NULL
+-- );
