@@ -2,8 +2,8 @@ const { Client } = require("pg");
 require("dotenv").config({ path: __dirname + "/../.env" });
 
 const client = new Client({
-  user: 'andersaustin',
-  // host: 'http://localhost',
+  user: 'ubuntu',
+  host: 'http://ec2-18-222-27-96.us-east-2.compute.amazonaws.com',
   database: 'photogallery',
   password: 'hackreactor'
   // port: 3005
