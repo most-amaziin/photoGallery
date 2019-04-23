@@ -3,7 +3,7 @@ import axios from "axios";
 import Gallery from "../presentational/gallery.js";
 import View from "../presentational/view.js";
 
-const URL = `http://ec2-18-188-249-142.us-east-2.compute.amazonaws.com/`;
+const URL = `http://ec2-18-188-249-142.us-east-2.compute.amazonaws.com`;
 
 export default class FormContainer extends React.Component {
   constructor(props) {
