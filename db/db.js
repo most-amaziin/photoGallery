@@ -20,18 +20,15 @@ client.connect(err => {
 
 // user clicks a product, send back all product photos object
 const getProductPics = (productId, cb) => {
+  console.log('get here fast?')
   client.query(
     `SELECT * FROM photos WHERE product_id = ${productId}`,
     (err, results) => {
       if (err) {
-        console.log(
-          "could not load pictures by product id :",
-          productId,
-          " error:",
-          err
-        );
+        console.log(err);
         cb(err);
       } else {
+        console.log('hello');
         cb(null, results.rows);
       }
     }

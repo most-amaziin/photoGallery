@@ -29,24 +29,24 @@ app.use(express.static("dist"));
 //user clicks a product, request all product photos
 app.get("/photos", (req, res) => {
   const productId = req.query.id;
-  // db.getProductPics(productId, (error, results) => {
-  //   if (error) {
-  //     console.log("server failed to load photos ", error);
-  //     res.end();
-  //   } else {
-  //     // console.log("5ZZZ", results);
-  //     res.send(results);
-  //   }
-  // });
-  console.log('hello');
-  const response = [
-    {
-        "id": 1,
-        "url": "https://s3.amazonaws.com/fecphotogallery2019/photos/65_3.jpg",
-        "product_id": 1
+  db.getProductPics(productId, (error, results) => {
+    if (error) {
+      console.log("server failed to load photos ", error);
+      res.end();
+    } else {
+      // console.log("5ZZZ", results);
+      res.send(results);
     }
-]
-  res.send(response);
+  });
+//   console.log('hello');
+//   const response = [
+//     {
+//         "id": 1,
+//         "url": "https://s3.amazonaws.com/fecphotogallery2019/photos/65_3.jpg",
+//         "product_id": 1
+//     }
+// ]
+//   res.send();
 });
 
 //user clicks a product, request product name

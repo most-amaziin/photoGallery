@@ -13,7 +13,7 @@ CREATE TABLE pics (
   url varchar(255) NOT NULL,
   product_id int not null
 )
--- CREATE TABLE products (
---   id SERIAL PRIMARY KEY,
---   name VARCHAR (255) NOT NULL
--- );
+CREATE TABLE products (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR (255) NOT NULL
+);
