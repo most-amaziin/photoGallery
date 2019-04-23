@@ -38,7 +38,15 @@ app.get("/photos", (req, res) => {
   //     res.send(results);
   //   }
   // });
-  res.send('success');
+  console.log('hello');
+  const response = [
+    {
+        "id": 1,
+        "url": "https://s3.amazonaws.com/fecphotogallery2019/photos/65_3.jpg",
+        "product_id": 1
+    }
+]
+  res.send(response);
 });
 
 //user clicks a product, request product name
