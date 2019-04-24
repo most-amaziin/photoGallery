@@ -25,10 +25,9 @@ const getProductPics = (productId, cb) => {
     `SELECT * FROM photos WHERE product_id = ${productId}`,
     (err, results) => {
       if (err) {
-        console.log(err);
+        // console.log(err);
         cb(err);
       } else {
-        console.log('hello');
         cb(null, results.rows);
       }
     }
@@ -41,15 +40,14 @@ const getProductName = (productId, cb) => {
     `SELECT name FROM products WHERE id = ${productId}`,
     (err, result) => {
       if (err) {
-        console.log(
-          "could not load product name by product id :",
-          productId,
-          " error:",
-          err
-        );
+        // console.log(
+        //   "could not load product name by product id :",
+        //   productId,
+        //   " error:",
+        //   err
+        // );
         cb(err);
       } else {
-        console.log("4YYY", result.rows);
         cb(null, result.rows);
       }
     }
@@ -59,7 +57,7 @@ const getProductName = (productId, cb) => {
 const save = (url, productId, cb) => {
   client.query(`insert into photos (url, product_id) values (${url},${productId})`, (err, result) => {
     if (err) {
-      console.log(err);
+      // console.log(err);
       cb(err,null);
     } else {
       cb(null,result);
@@ -73,7 +71,7 @@ const update = (url, productId, cb) => {
     client.query(`update photos set url = '${url}', product_id = ${productId} where id = ${randomId}`)
   }, (err, data) => {
     if (err) {
-      console.log(err);
+      // console.log(err);
       cb(err,null);
     } else {
       cb(null, data);
@@ -87,7 +85,7 @@ const Delete = (cb) => {
     client.query(`delete from photos where id = ${randomId}`)
   }, (err, data) => {
     if (err) {
-      console.log(err);
+      // console.log(err);
       cb(err,null);
     } else {
       cb(null, data);

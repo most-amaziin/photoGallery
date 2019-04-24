@@ -4,7 +4,7 @@ const cors = require("cors");
 require("dotenv").config({ path: __dirname + "/../.env" });
 const imageArray = require('../imageData');
 const fs = require('file-system');
-
+const compression = require('compression');
 const bodyParser = require("body-parser");
 //postgres
 const db = require("../db/db");
@@ -13,40 +13,20 @@ const db = require("../db/db");
 
 app.use(bodyParser.json({ urlencoded: false }));
 app.use(cors());
+app.use(compression());
 app.use(express.static("dist"));
-
-// let nextRow;
-
-// fs.readFile('/home/andersaustin/Documents/HR_Github_Repos/SDC/photoGallery/photos.csv','utf8', (err, data) => {
-//   if (err) {
-//     console.log(err);
-//   } else {
-//     let blah = data.split('\n');
-//     nextRow = blah.length;
-//   }
-// })
 
 //user clicks a product, request all product photos
 app.get("/photos", (req, res) => {
   const productId = req.query.id;
   db.getProductPics(productId, (error, results) => {
     if (error) {
-      console.log("server failed to load photos ", error);
+      // console.log("server failed to load photos ", error);
       res.end();
     } else {
-      // console.log("5ZZZ", results);
       res.send(results);
     }
   });
-//   console.log('hello');
-//   const response = [
-//     {
-//         "id": 1,
-//         "url": "https://s3.amazonaws.com/fecphotogallery2019/photos/65_3.jpg",
-//         "product_id": 1
-//     }
-// ]
-//   res.send();
 });
 
 //user clicks a product, request product name
@@ -54,10 +34,9 @@ app.get("/product/id", (req, res) => {
   const productId = req.query.id;
   db.getProductName(productId, (error, result) => {
     if (error) {
-      console.log("server failed to get product name ", error);
+      // console.log("server failed to get product name ", error);
       res.end();
     } else {
-      // console.log("5YYY", result);
       res.send(result);
     }
   });
@@ -70,7 +49,7 @@ app.post('/post', (req, res) => {
   let image = imageArray.imageArray[Math.floor(Math.random()*334)][1]
   db.save(image, id, (err, data) => {
     if (err) {
-      console.log(err)
+      // console.log(err)
       res.end()
     } else {
       res.send(data)
@@ -84,7 +63,7 @@ app.put('/put', (req, res) => {
 
   db.update(image, id, (err, data) => {
     if (err) {
-      console.log(err)
+      // console.log(err)
       res.end()
     } else {
       res.send(data)
@@ -95,7 +74,7 @@ app.put('/put', (req, res) => {
 app.delete('/delete', (req, res) => {
   db.Delete((err, data) => {
     if (err) {
-      console.log(err)
+      // console.log(err)
       res.end();
     } else {
       res.send(data)
@@ -118,7 +97,7 @@ app.post('/seed', (req, res) => {
     }
     fs.appendFile('photos.csv',insertString, (err, res) => {
       if (err) {
-        console.log(err);
+        // console.log(err);
       } 
     });
   }
