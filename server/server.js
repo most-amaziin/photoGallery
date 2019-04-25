@@ -17,12 +17,13 @@ app.use(compression());
 app.use(express.static("dist"));
 
 //user clicks a product, request all product photos
-app.get("/photos", (req, res) => {
+app.get("/photos", (req, res,next) => {
   const productId = req.query.id;
   db.getProductPics(productId, (error, results) => {
     if (error) {
       // console.log("server failed to load photos ", error);
-      res.end();
+      // res.end();
+      next();
     } else {
       res.send(results);
     }

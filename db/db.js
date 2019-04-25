@@ -6,7 +6,9 @@ const client = new Client({
   host: '18.222.27.96',
   database: 'photogallery',
   password: 'hackreactor',
-  port: 5432
+  port: 5432,
+  max: 10,
+  idleTimeoutMillis: 3000
 });
 
 client.connect(err => {
@@ -20,7 +22,6 @@ client.connect(err => {
 
 // user clicks a product, send back all product photos object
 const getProductPics = (productId, cb) => {
-  console.log('get here fast?')
   client.query(
     `SELECT * FROM photos WHERE product_id = ${productId}`,
     (err, results) => {
@@ -40,12 +41,6 @@ const getProductName = (productId, cb) => {
     `SELECT name FROM products WHERE id = ${productId}`,
     (err, result) => {
       if (err) {
-        // console.log(
-        //   "could not load product name by product id :",
-        //   productId,
-        //   " error:",
-        //   err
-        // );
         cb(err);
       } else {
         cb(null, result.rows);
@@ -92,17 +87,5 @@ const Delete = (cb) => {
     }
   })
 }
-
-// const seed = (insertValues, cb) => {
-//   client.query(`INSERT INTO photos (url, product_id) VALUES ${insertValues}`, (err, result) => {
-//     if (err) {
-//       console.log('err');
-//       cb(err);
-//     } else {
-//       cb(null, 'success')
-//     }
-//   });
-
-// };
 
 module.exports = { getProductPics, getProductName, save, update, Delete};
